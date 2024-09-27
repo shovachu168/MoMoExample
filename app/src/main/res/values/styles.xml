@@ -1,0 +1,15 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="CardViewTheme" parent="Theme.MaterialComponents.Light">
+        <item name="cardBackgroundColor">@color/material_dynamic_neutral60</item>
+        <item name="cardForegroundColor">@color/material_dynamic_neutral60</item>
+    </style>
+</resources>

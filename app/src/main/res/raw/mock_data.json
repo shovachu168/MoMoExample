@@ -1,0 +1,117 @@
+{
+  "promote_content": ["Promo 1", "Promo 2", "Promo 3", "Promo 4", "Promo 5", "Promo 6"],
+  "products":[{
+    "product_id":1,
+    "product_name":"product 1",
+    "is_like": false
+  },
+    {
+      "product_id":2,
+      "product_name":"product 2",
+      "is_like": true
+    },
+    {
+      "product_id":3,
+      "product_name":"product 3",
+      "is_like": false
+    },
+    {
+      "product_id":4,
+      "product_name":"product 4",
+      "is_like": false
+    },
+    {
+      "product_id":5,
+      "product_name":"product 5",
+      "is_like": false
+    },
+    {
+      "product_id":6,
+      "product_name":"product 6",
+      "is_like": true
+    },
+    {
+      "product_id":7,
+      "product_name":"product 7",
+      "is_like": false
+    },
+    {
+      "product_id":8,
+      "product_name":"product 8",
+      "is_like": true
+    },
+    {
+      "product_id":9,
+      "product_name":"product 9",
+      "is_like": false
+    },
+    {
+      "product_id":10,
+      "product_name":"product 10",
+      "is_like": false
+    },
+    {
+      "product_id":11,
+      "product_name":"product 11",
+      "is_like": false
+    },
+    {
+      "product_id":12,
+      "product_name":"product 12",
+      "is_like": false
+    },
+    {
+      "product_id":13,
+      "product_name":"product 13",
+      "is_like": false
+    },
+    {
+      "product_id":14,
+      "product_name":"product 14",
+      "is_like": true
+    },{
+      "product_id":15,
+      "product_name":"product 15",
+      "is_like": false
+    },
+    {
+      "product_id":16,
+      "product_name":"product 16",
+      "is_like": false
+    },
+    {
+      "product_id":17,
+      "product_name":"product 17",
+      "is_like": false
+    },
+    {
+      "product_id":18,
+      "product_name":"product 18",
+      "is_like": false
+    },
+    {
+      "product_id":19,
+      "product_name":"product 19",
+      "is_like": false
+    },{
+      "product_id":20,
+      "product_name":"product 20",
+      "is_like": false
+    },
+    {
+      "product_id":21,
+      "product_name":"product 21",
+      "is_like": false
+    },
+    {
+      "product_id":22,
+      "product_name":"product 22",
+      "is_like": false
+    },
+    {
+      "product_id":23,
+      "product_name":"product 23",
+      "is_like": false
+    }
+  ]
+}
