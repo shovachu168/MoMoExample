@@ -21,14 +21,15 @@ class ProductListFragment : Fragment() {
     private lateinit var bindingView: ProductListFragmentBinding
     private lateinit var pageViewModel: PageViewModel
 
-    private val spanCountOne = 1
-    private val spanCountTwo = 2
-    private val spanCountThree = 3
+    private val tagName = "percent"
+    private val displayOneColumn = 1
+    private val displayTwoColumn = 2
+    private val displayThreeColumn = 3
     //todo scroll to top function
    // private var lastProductItemPosition = 0
     private var totalProductNum = 0
 
-    private var productSpanCount = spanCountTwo
+    private var productSpanCount = displayTwoColumn
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,17 +48,17 @@ class ProductListFragment : Fragment() {
     }
 
     private fun observeData() {
-        pageViewModel.getDataFailed.observe(viewLifecycleOwner) {
+        pageViewModel.getDataFailed.observe(viewLifecycleOwner) { isApiFailed ->
             bindingView.loadingProgress.visibility = View.GONE
-            bindingView.errorTv.visibility = if (it) View.VISIBLE else View.GONE
-            bindingView.pageInfo.visibility = if (it) View.GONE else View.VISIBLE
+            bindingView.errorTv.visibility = if (isApiFailed) View.VISIBLE else View.GONE
+            bindingView.pageInfo.visibility = if (isApiFailed) View.GONE else View.VISIBLE
         }
-        pageViewModel.pageLiveData.observe(viewLifecycleOwner) {
-            if (it.promoteList.isNotEmpty()) {
+        pageViewModel.pageLiveData.observe(viewLifecycleOwner) { pageModel ->
+            if (pageModel.promoteList.isNotEmpty()) {
                 setPromoRecycleView()
             }
-            if (it.productList.isNotEmpty()) {
-                totalProductNum = it.productList.size
+            if (pageModel.productList.isNotEmpty()) {
+                totalProductNum = pageModel.productList.size
                 setFilterView()
                 setProductRecycleView()
             }
@@ -65,7 +66,7 @@ class ProductListFragment : Fragment() {
     }
 
     private fun setPromoRecycleView() {
-        bindingView.promoList.layoutManager = GridLayoutManager(this.context, spanCountThree)
+        bindingView.promoList.layoutManager = GridLayoutManager(this.context, displayThreeColumn)
         pageViewModel.pageLiveData.value?.promoteList?.let {
             val promoAdapter = PromoAdapter(it)
             bindingView.promoList.adapter = promoAdapter
@@ -80,7 +81,7 @@ class ProductListFragment : Fragment() {
         colorInt?.let { bindingView.filterArea.setBackgroundColor(it) }
         bindingView.filterClickArea.setOnClickListener {
             productSpanCount =
-                if (productSpanCount == spanCountTwo) spanCountOne else spanCountTwo
+                if (productSpanCount == displayTwoColumn) displayOneColumn else displayTwoColumn
             bindingView.productList.layoutManager =
                 GridLayoutManager(this.context, productSpanCount)
         }
@@ -91,6 +92,7 @@ class ProductListFragment : Fragment() {
             GridLayoutManager(this.context, productSpanCount) {
             override fun onLayoutCompleted(state: RecyclerView.State?) {
                 super.onLayoutCompleted(state)
+
                 printAllViewHolderVisiblePercent()
 
             }
@@ -155,7 +157,7 @@ class ProductListFragment : Fragment() {
                         visiblePercent = ((visibleHeight.toDouble() / originViewHeight) * 100).toInt()
                     }
                 }
-                Log.d("percent", "index$i $visiblePercent%")
+                Log.d(tagName, "index$i $visiblePercent%")
             }
         }
     }
